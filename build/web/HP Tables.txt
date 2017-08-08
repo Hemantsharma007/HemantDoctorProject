@@ -1,0 +1,100 @@
+create table Table_Patient
+(
+    Pid varchar(10) PRIMARY key,
+    Pname varchar(100) unique key,
+    Email varchar(100) unique key,
+    Pass varchar(100),
+    Contact varchar(100) unique key,
+    DOB varchar(100),
+    Gender varchar(100),
+    Age varchar(100),
+    PStatus varchar(100),
+    Address varchar(200),
+    Disease varchar(100),
+    RoomType varchar(100),
+    Reg_Date varchar(100)
+);
+
+create table Table_Feedback
+(
+    Pname varchar(100),
+    Services varchar(100),
+    Points varchar(100),
+    Doc_Nature varchar(100),
+
+    Location varchar(100),
+    Feedback varchar(1000),
+    Reg_Date varchar(100)
+);
+
+create table Table_Doctor
+(
+    Did varchar(100) PRIMARY key,
+    Dname varchar(100) unique key,
+    Email varchar(100) unique key,
+    Pass varchar(100) not null,
+    Gender varchar(100),
+    Age varchar(100),
+    Degree varchar(100),
+    Department varchar(200),		
+    Fees varchar(200),
+    Contact varchar(100) unique key,
+    Address varchar(200),
+    Reg_Date varchar(100)
+);
+
+create table Table_Appointment
+(
+    Pid varchar(100),
+    Pname varchar(100),
+    Department varchar(100),
+    Dname varchar(100),
+    Did varchar(100),
+    Fees varchar(100),
+    App_Date varchar(100),
+    App_Time varchar(100)
+);
+
+create table DiseaseCost
+(
+	Disease_Name varchar(200),
+	Cost varchar(200) primary key
+	
+);
+
+create table Department
+(
+    Fees varchar(100),
+    Dname varchar(100),
+    Department 	varchar(100),
+    Degree varchar(100),
+    Gender varchar(100)
+);
+INSERT INTO `department` (`Fees`, `Dname`, `Department`, `Degree`, `Gender`) VALUES ('500', 'Dr. Dharmesh', 'Ayurveda', 'B.A.M.S.', 'Male'), ('800', 'Dr. Smith', 'Dentist', 'D.D.S', 'Male');
+INSERT INTO `department` (`Fees`, `Dname`, `Department`, `Degree`, `Gender`) VALUES ('1000', 'Dr. Shashi', 'Cardiology', 'M.D.', 'Male'), ('600', 'Dr. Swasti', 'Gynecologist', 'B.Sc Nursing', 'Female');
+INSERT INTO `department` (`Fees`, `Dname`, `Department`, `Degree`, `Gender`) VALUES ('400', 'Dr. Mehra', 'ENT Specialist', 'M.B', 'Male'), ('700', 'Dr. Sharma', 'Homeopathy', 'B.H.M.S', 'Male');
+INSERT INTO `department` (`Fees`, `Dname`, `Department`, `Degree`, `Gender`) VALUES ('500', 'Dr. Sneha', 'Radiology', 'RADIOGRAPHY', 'Female'), ('400', 'Dr. Gaurav', 'General Physician', 'B.M.B.S', 'Male');
+INSERT INTO `department` (`Fees`, `Dname`, `Department`, `Degree`, `Gender`) VALUES ('1200', 'Dr. Trump', 'veterinary physician', 'D.V.M', 'Male'), ('1500', 'Dr. Neha', 'Physiotherapy', 'B.P.T', 'Female');
+INSERT INTO `department` (`Fees`, `Dname`, `Department`, `Degree`, `Gender`) VALUES ('800', 'Dr. Bansal', 'Obstetrician', 'OB-GYN', 'Male'), ('1000', 'Dr. Kiran', 'Neurology', 'Neurologist', 'Female');
+
+
+
+
+create table Patient_Bill
+(
+	Pid varchar(100),
+	Pname varchar(100),
+	Dname varchar(100),
+	Disease varchar(200),
+	BillAmount varchar(100)
+);
+INSERT INTO `diseasecost` (`Disease_Name`, `Cost`) VALUES ('Cancer', '2000000');
+INSERT INTO `diseasecost` (`Disease_Name`, `Cost`) VALUES ('Celiac Disease', '10000');
+INSERT INTO `diseasecost` (`Disease_Name`, `Cost`) VALUES ('Heart Disease', '250000');
+INSERT INTO `diseasecost` (`Disease_Name`, `Cost`) VALUES ('Crohn''s & Colitis', '5000');
+INSERT INTO `diseasecost` (`Disease_Name`, `Cost`) VALUES ('Infectious Diseases', '2000');
+INSERT INTO `diseasecost` (`Disease_Name`, `Cost`) VALUES ('Liver Disease', '100000');
+INSERT INTO `diseasecost` (`Disease_Name`, `Cost`) VALUES ('Big Diseases', '5000000');
+INSERT INTO `diseasecost` (`Disease_Name`, `Cost`) VALUES ('Private Diseases', '3000');
+INSERT INTO `diseasecost` (`Disease_Name`, `Cost`) VALUES ('Ear, Nose and Throat Diseases', '1500');
+INSERT INTO `diseasecost` (`Disease_Name`, `Cost`) VALUES ('Other Diseases', '2500');
